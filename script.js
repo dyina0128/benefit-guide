@@ -177,6 +177,16 @@ deleteBtn.addEventListener("click", function() {
   location.href = "youth-account.html";
   return;
 }
+
+if (item[0].includes("주거지원")) {
+    location.href = "housing-benefit.html";
+    return;
+}
+
+if (item[0].includes("취업지원")) {
+    location.href = "job-support.html";
+    return;
+}
       detailContent.innerHTML = `
         <h3>${item[0]}</h3>
         <p>${item[1]}</p>
