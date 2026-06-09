@@ -189,7 +189,7 @@ if (item[0].includes("취업지원")) {
     return;
 }
 
-if (item[0].includes("전기차")) {
+if (item[0].includes("자동차 지원")) {
     location.href = "ev-subsidy.html";
     return;
 }
