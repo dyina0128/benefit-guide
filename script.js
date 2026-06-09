@@ -187,6 +187,11 @@ if (item[0].includes("취업지원")) {
     location.href = "job-support.html";
     return;
 }
+
+if (item[0].includes("전기차")) {
+    location.href = "ev-subsidy.html";
+    return;
+}
       detailContent.innerHTML = `
         <h3>${item[0]}</h3>
         <p>${item[1]}</p>
