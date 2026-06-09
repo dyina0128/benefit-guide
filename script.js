@@ -283,3 +283,4 @@ searchInput.addEventListener("input", function() {
         }
     });
 });
+renderCards("전국");
