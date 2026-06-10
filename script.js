@@ -7,6 +7,10 @@ const benefitData = {
     ["👵 노인복지", "기초연금, 노인일자리 사업"],
     ["🚜 농어촌 지원", "귀농귀촌 지원, 청년농업인 지원"],
     ["🚗 자동차 지원", "전기차 보조금, 조기폐차 지원금, 자동차세 감면"]
+    ["💰 근로장려금", "근로장려금 신청방법, 지급조건"],
+    ["🎭 문화누리카드", "문화생활 지원"],
+    ["🔥 에너지바우처", "전기·가스·난방비 지원"],
+    ["👴 기초연금", "만 65세 이상 기초연금 지원"],
   ],
 
   "서울": [
@@ -196,6 +200,31 @@ if (item[0].includes("자동차 지원")) {
 
 if (item[0].includes("노인복지")) {
     location.href = "elder-benefit.html";
+    return;
+}
+
+if (item[0].includes("농어촌")) {
+    location.href = "farm-support.html";
+    return;
+}
+
+if (item[0].includes("근로장려금")) {
+    location.href = "work-incentive-guide.html";
+    return;
+}
+
+if (item[0].includes("문화누리카드")) {
+    location.href = "culture-card-guide.html";
+    return;
+}
+
+if (item[0].includes("에너지바우처")) {
+    location.href = "energy-voucher-guide.html";
+    return;
+}
+
+if (item[0].includes("기초연금")) {
+    location.href = "basic-pension-guide.html";
     return;
 }
 
