@@ -193,6 +193,12 @@ if (item[0].includes("자동차 지원")) {
     location.href = "ev-subsidy.html";
     return;
 }
+
+if (item[0].includes("노인복지")) {
+    location.href = "elder-benefit.html";
+    return;
+}
+
       detailContent.innerHTML = `
         <h3>${item[0]}</h3>
         <p>${item[1]}</p>
