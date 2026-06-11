@@ -222,6 +222,35 @@ if (item[0].includes("문화누리카드")) {
     location.href = "culture-card-guide.html";
     return;
 }
+if (item[0].includes("출산")) {
+    location.href = "birth-child.html";
+    return;
+}
+
+if (item[0].includes("자동차")) {
+    location.href = "ev-subsidy.html";
+    return;
+}
+
+if (item[0].includes("노인복지")) {
+    location.href = "elder-benefit.html";
+    return;
+}
+
+if (item[0].includes("농어촌")) {
+    location.href = "farm-support.html";
+    return;
+}
+
+if (item[0].includes("근로장려금")) {
+    location.href = "work-incentive-guide.html";
+    return;
+}
+
+if (item[0].includes("문화누리카드")) {
+    location.href = "culture-card-guide.html";
+    return;
+}
 
 if (item[0].includes("에너지바우처")) {
     location.href = "energy-voucher-guide.html";
