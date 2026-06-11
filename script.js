@@ -213,12 +213,12 @@ if (item[0].includes("농어촌")) {
     return;
 }
 
-if (item[0]=== "💰 근로장려금")) {
+if (item[0].includes("근로장려금")) {
     location.href = "work-incentive-guide.html";
     return;
 }
 
-if (item[0].includes("문화누리카드") {
+if (item[0].includes("문화누리카드")) {
     location.href = "culture-card-guide.html";
     return;
 }
@@ -228,7 +228,7 @@ if (item[0].includes("에너지바우처")) {
     return;
 }
 
-if (item[0]=== "👴 기초연금") {
+if (item[0].includes("기초연금")) {
     location.href = "basic-pension-guide.html";
     return;
 }
