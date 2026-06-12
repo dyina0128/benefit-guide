@@ -10,7 +10,11 @@ const benefitData = {
   ["💰 근로장려금", "근로장려금 신청방법, 지급조건"],
   ["👨‍👩‍👧 자녀장려금", "자녀 양육 가구 지원금 신청방법"],
   ["🎭 문화누리카드", "문화생활 지원"],
+  ["🎓 국민내일배움카드", "직업훈련 및 자격증 교육 지원"],
   ["🔥 에너지바우처", "전기·가스·난방비 지원"],
+  ["👨‍👧 한부모가정 지원", "아동양육비, 교육비, 주거지원"],
+  ["♿ 장애인 복지", "장애인연금, 활동지원, 의료비 지원"],
+  ["🎓 국가장학금", "대학생 등록금 지원, 소득구간별 장학금"],
   ["👴 기초연금", "만 65세 이상 기초연금 지원"]
 ],
 
@@ -228,6 +232,12 @@ if (item[0].includes("문화누리카드")) {
     location.href = "culture-card-guide.html";
     return;
 }
+
+if (item[0].includes("국민내일배움카드")) {
+    location.href = "training-card-guide.html";
+    return;
+}
+
 if (item[0].includes("출산")) {
     location.href = "birth-child.html";
     return;
@@ -260,6 +270,21 @@ if (item[0].includes("문화누리카드")) {
 
 if (item[0].includes("에너지바우처")) {
     location.href = "energy-voucher-guide.html";
+    return;
+}
+
+if (item[0].includes("한부모")) {
+    location.href = "single-parent-support.html";
+    return;
+}
+
+if (item[0].includes("장애인")) {
+    location.href = "disability-benefit.html";
+    return;
+}
+
+if (item[0].includes("국가장학금")) {
+    location.href = "national-scholarship.html";
     return;
 }
 
