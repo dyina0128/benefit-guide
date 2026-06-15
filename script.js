@@ -131,63 +131,63 @@ function renderCards(region) {
         return;
       }
       if (item[0].includes("청년")) {
-        location.href = "./posts/youth-account.html";
+        location.href = "./youth-account.html";
         return;
       }
       if (item[0].includes("주거지원")) {
-        location.href = "./posts/housing-benefit.html";
+        location.href = "./housing-benefit.html";
         return;
       }
       if (item[0].includes("취업지원")) {
-        location.href = "./posts/job-support.html";
+        location.href = "./job-support.html";
         return;
       }
       if (item[0].includes("출산")) {
-        location.href = "./posts/birth-child.html";
+        location.href = "./birth-child.html";
         return;
       }
       if (item[0].includes("자동차")) {
-        location.href = "./posts/ev-subsidy.html";
+        location.href = "./ev-subsidy.html";
         return;
       }
       if (item[0].includes("노인복지")) {
-        location.href = "./posts/elder-benefit.html";
+        location.href = "./elder-benefit.html";
         return;
       }
       if (item[0].includes("농어촌")) {
-        location.href = "./posts/farm-support.html";
+        location.href = "./farm-support.html";
         return;
       }
       if (item[0].includes("자녀장려금")) {
-        location.href = "./posts/child-tax-credit.html";
+        location.href = "./child-tax-credit.html";
         return;
       }
       if (item[0].includes("문화누리카드")) {
-        location.href = "./posts/culture-card-guide.html";
+        location.href = "./culture-card-guide.html";
         return;
       }
       if (item[0].includes("국민내일배움카드")) {
-        location.href = "./posts/training-card-guide.html";
+        location.href = "./training-card-guide.html";
         return;
       }
       if (item[0].includes("에너지바우처")) {
-        location.href = "./posts/energy-voucher-guide.html";
+        location.href = "./energy-voucher-guide.html";
         return;
       }
       if (item[0].includes("한부모")) {
-        location.href = "./posts/single-parent-support.html";
+        location.href = "./single-parent-support.html";
         return;
       }
       if (item[0].includes("장애인")) {
-        location.href = "./posts/disability-benefit.html";
+        location.href = "./disability-benefit.html";
         return;
       }
       if (item[0].includes("국가장학금")) {
-        location.href = "./posts/national-scholarship.html";
+        location.href = "./national-scholarship.html";
         return;
       }
       if (item[0].includes("기초연금")) {
-        location.href = "./posts/basic-pension-guide.html";
+        location.href = "./basic-pension-guide.html";
         return;
       }
 
