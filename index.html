@@ -8,13 +8,13 @@
 </head>
 <body>
 
-    <header>
-        <h1>정부 지원금 및 복지 혜택 가이드</h1>
-        <p>나에게 맞는 숨은 정부 혜택을 한눈에 확인하세요.</p>
+    <header style="background-color: #0076c0; color: white; text-align: center; padding: 40px 20px; margin-bottom: 20px;">
+        <h1 style="margin: 0; font-size: 2.2rem; font-weight: bold;">정부 지원금 및 복지 혜택 가이드</h1>
+        <p style="margin: 10px 0 0 0; font-size: 1.1rem; opacity: 0.9;">나에게 맞는 숨은 정부 혜택을 한눈에 확인하세요.</p>
     </header>
 
-    <div class="control-box">
-        <select id="region">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; gap: 10px; margin-bottom: 20px;">
+        <select id="region" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">
             <option value="전국">🌐 전국 공통 혜택</option>
             <option value="서울">🏙️ 서울특별시</option>
             <option value="인천">⚓ 인천광역시</option>
@@ -25,24 +25,14 @@
             <option value="대전">🔬 대전광역시</option>
             <option value="울산">🐳 울산광역시</option>
         </select>
-        <input type="text" id="searchInput" placeholder="찾으시는 혜택을 검색해 보세요 (예: 장려금, 청년)...">
+        <input type="text" id="searchInput" placeholder="찾으시는 혜택을 검색해 보세요..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">
     </div>
 
-    <main>
-        <div id="cards" class="card-container">
-            </div>
-    </main>
+    <div id="cards" class="card-container"></div>
 
-    <section class="favorites-section">
-        <h2>⭐ 내가 저장한 혜택 보관함</h2>
-        <div id="favorites" class="card-container"></div>
-    </section>
-
-    <div id="detailBox" class="detail-container">
-        <div id="detailContent">카드를 선택하시면 상세 신청 방법이 나타납니다.</div>
-    </div>
-
-    <button id="darkModeBtn" class="floating-btn">🌓 모드 전환</button>
+    <div id="favorites" class="card-container" style="display:none;"></div>
+    <div id="detailBox" style="display:none;"><div id="detailContent"></div></div>
+    <button id="darkModeBtn" style="display:none;">🌓</button>
 
     <script src="script.js"></script>
 </body>
