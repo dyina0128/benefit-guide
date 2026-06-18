@@ -77,20 +77,6 @@ const benefitData = {
   ]
 };
 
-// 2. 외부 바로가기 링크 설정
-const benefitLinks = {
-  "청년정책": "https://www.gov.kr/portal/service/serviceInfo",
-  "주거지원": "https://www.gov.kr/portal/main",
-  "출산·육아": "https://www.gov.kr/portal/service/serviceInfo",
-  "취업지원": "https://www.work24.go.kr",
-  "노인복지": "https://www.bokjiro.go.kr",
-  "농어촌 지원": "https://www.mafra.go.kr",
-  "서울 청년정책": "https://youth.seoul.go.kr",
-  "서울 주거지원": "https://housing.seoul.go.kr",
-  "인천 청년정책": "https://www.incheon.go.kr",
-  "인천 주거지원": "https://www.incheon.go.kr"
-};
-
 // HTML 엘리먼트 연결
 const select = document.getElementById("region");
 const cards = document.getElementById("cards");
@@ -101,22 +87,24 @@ const darkModeBtn = document.getElementById("darkModeBtn");
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 const favoritesBox = document.getElementById("favorites");
 
-// 3. 카드 생성 및 클릭 시 개별 html 문서 연동 (애드센스 정적 주소 세팅)
+// 2. 카드 렌더링 함수 (디자인 클래스 card 주입 및 버튼 레이아웃 완벽 연동)
 function renderCards(region) {
+  if (!cards) return;
   cards.innerHTML = "";
-  if (detailContent) detailContent.innerHTML = "카드를 선택해주세요.";
 
   benefitData[region].forEach(function(item) {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card"; // ⭐ 네모나고 커다란 카드 스타일(style.css) 강제 연결
     card.innerHTML = `
       <h3>${item[0]}</h3>
       <p>${item[1]}</p>
-      <button class="detailBtn">자세히 보기</button>
-      <button class="favBtn">⭐ 저장</button>
+      <div class="btn-group" style="margin-top: 15px; display: flex; gap: 8px; justify-content: center;">
+        <button class="detailBtn" style="background-color: #0076c0; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">자세히 보기</button>
+        <button class="favBtn" style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 8px 12px; border-radius: 4px; cursor: pointer;">⭐ 저장</button>
+      </div>
     `;
 
-    // 즐겨찾기 저장 기능
+    // 즐겨찾기 기능
     const favBtn = card.querySelector(".favBtn");
     favBtn.addEventListener("click", function() {
       if (!favorites.includes(item[0])) {
@@ -126,97 +114,32 @@ function renderCards(region) {
       updateFavoritesUI();
     });
 
-    // 자세히 보기 클릭 시 정적 html 주소 이동 (핵심 포스팅 16개 연동)
+    // 버튼 클릭 시 개별 문서 연동
     const button = card.querySelector(".detailBtn");
     button.addEventListener("click", function() {
-      
-      if (item[0].includes("근로장려금")) {
-        location.href = "./posts/earned-income-tax-credit.html";
-        return;
-      }
-      if (item[0].includes("청년")) {
-        location.href = "./posts/youth-account.html";
-        return;
-      }
-      if (item[0].includes("주거지원")) {
-        location.href = "./posts/housing-benefit.html";
-        return;
-      }
-      if (item[0].includes("취업지원")) {
-        location.href = "./posts/job-support.html";
-        return;
-      }
-      if (item[0].includes("출산")) {
-        location.href = "./posts/birth-child.html";
-        return;
-      }
-      if (item[0].includes("자동차")) {
-        location.href = "./posts/ev-subsidy.html";
-        return;
-      }
-      if (item[0].includes("노인복지")) {
-        location.href = "./posts/elder-benefit.html";
-        return;
-      }
-      if (item[0].includes("농어촌")) {
-        location.href = "./posts/farm-support.html";
-        return;
-      }
-      if (item[0].includes("자녀장려금")) {
-        location.href = "./posts/child-tax-credit.html";
-        return;
-      }
-      if (item[0].includes("문화누리카드")) {
-        location.href = "./posts/culture-card-guide.html";
-        return;
-      }
-      if (item[0].includes("국민내일배움카드")) {
-        location.href = "./posts/training-card-guide.html";
-        return;
-      }
-      if (item[0].includes("에너지바우처")) {
-        location.href = "./posts/energy-voucher-guide.html";
-        return;
-      }
-      if (item[0].includes("한부모")) {
-        location.href = "./posts/single-parent-support.html";
-        return;
-      }
-      if (item[0].includes("장애인")) {
-        location.href = "./posts/disability-benefit.html";
-        return;
-      }
-      if (item[0].includes("국가장학금")) {
-        location.href = "./posts/national-scholarship.html";
-        return;
-      }
-      if (item[0].includes("기초연금")) {
-        location.href = "./posts/basic-pension-guide.html";
-        return;
-      }
-
-      // 예외 기본값 폴백 (SPA 하단 상세 박스 유지)
-      if (detailContent) {
-        detailContent.innerHTML = `
-          <h3>${item[0]}</h3>
-          <p>${item[1]}</p>
-          <p><strong>신청 방법:</strong> 정부24 또는 복지로 홈페이지 확인</p>
-          <p><strong>준비 서류:</strong> 신분증, 소득증빙서류, 주민등록등본</p>
-          <a href="${benefitLinks[item[0]] || 'https://www.gov.kr'}" target="_blank">정부24 바로가기</a>
-        `;
-      }
-
-      const detailBox = document.getElementById("detailBox");
-      if (detailBox) {
-        detailBox.scrollIntoView({ behavior: "smooth" });
-      }
+      if (item[0].includes("근로장려금")) { location.href = "./posts/earned-income-tax-credit.html"; return; }
+      if (item[0].includes("청년")) { location.href = "./posts/youth-account.html"; return; }
+      if (item[0].includes("주거지원")) { location.href = "./posts/housing-benefit.html"; return; }
+      if (item[0].includes("취업지원")) { location.href = "./posts/job-support.html"; return; }
+      if (item[0].includes("출산")) { location.href = "./posts/birth-child.html"; return; }
+      if (item[0].includes("자동차")) { location.href = "./posts/ev-subsidy.html"; return; }
+      if (item[0].includes("노인복지")) { location.href = "./posts/elder-benefit.html"; return; }
+      if (item[0].includes("농어촌")) { location.href = "./posts/farm-support.html"; return; }
+      if (item[0].includes("자녀장려금")) { location.href = "./posts/child-tax-credit.html"; return; }
+      if (item[0].includes("문화누리카드")) { location.href = "./posts/culture-card-guide.html"; return; }
+      if (item[0].includes("국민내일배움카드")) { location.href = "./posts/training-card-guide.html"; return; }
+      if (item[0].includes("에너지바우처")) { location.href = "./posts/energy-voucher-guide.html"; return; }
+      if (item[0].includes("한부모")) { location.href = "./posts/single-parent-support.html"; return; }
+      if (item[0].includes("장애인")) { location.href = "./posts/disability-benefit.html"; return; }
+      if (item[0].includes("국가장학금")) { location.href = "./posts/national-scholarship.html"; return; }
+      if (item[0].includes("기초연금")) { location.href = "./posts/basic-pension-guide.html"; return; }
     });
 
     cards.appendChild(card);
   });
 }
 
-// 4. 즐겨찾기 UI 업데이트 헬퍼 함수
+// 3. 즐겨찾기 UI 업데이트
 function updateFavoritesUI() {
   if (!favoritesBox) return;
   favoritesBox.innerHTML = "";
@@ -225,7 +148,7 @@ function updateFavoritesUI() {
     favCard.className = "card";
     favCard.innerHTML = `
       <h3>${title}</h3>
-      <button class="deleteBtn">삭제</button>
+      <button class="deleteBtn" style="background-color: #ff4d4d; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">삭제</button>
     `;
     
     const deleteBtn = favCard.querySelector(".deleteBtn");
@@ -241,7 +164,7 @@ function updateFavoritesUI() {
   });
 }
 
-// 5. 지역 선택 변경 및 다크모드 이벤트 바인딩
+// 4. 이벤트 바인딩
 if (select) {
   select.addEventListener("change", function() {
     renderCards(select.value);
@@ -255,12 +178,11 @@ if (darkModeBtn) {
   });
 }
 
-// 6. [중요 복구] 실시간 검색 기능 및 검색 결과 연동 로직 완벽 조립
+// 5. 검색창에서도 큼직한 네모 카드로 나오도록 조립
 if (searchInput) {
   searchInput.addEventListener("input", function() {
     const keyword = searchInput.value;
     cards.innerHTML = "";
-
     const currentRegion = select ? select.value : "전국";
 
     benefitData[currentRegion].forEach(function(item) {
@@ -269,92 +191,33 @@ if (searchInput) {
 
       if (title.includes(keyword) || desc.includes(keyword)) {
         const card = document.createElement("div");
-        card.className = "card";
+        card.className = "card"; // ⭐ 여기도 똑같이 큰 카드 모양 주입
         card.innerHTML = `
           <h3>${title}</h3>
           <p>${desc}</p>
-          <button class="detailBtn">자세히 보기</button>
+          <div class="btn-group" style="margin-top: 15px; display: flex; gap: 8px; justify-content: center;">
+            <button class="detailBtn" style="background-color: #0076c0; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">자세히 보기</button>
+          </div>
         `;
 
         const button = card.querySelector(".detailBtn");
         button.addEventListener("click", function() {
-          // 검색 결과창에서도 동일하게 개별 글(html) 링크로 튕겨주는 분기 적용
-          if (title.includes("근로장려금")) {
-            location.href = "./posts/earned-income-tax-credit.html";
-            return;
-          }
-          if (title.includes("청년")) {
-            location.href = "./posts/youth-account.html";
-            return;
-          }
-          if (title.includes("주거지원")) {
-            location.href = "./posts/housing-benefit.html";
-            return;
-          }
-          if (title.includes("취업지원")) {
-            location.href = "./posts/job-support.html";
-            return;
-          }
-          if (title.includes("출산")) {
-            location.href = "./posts/birth-child.html";
-            return;
-          }
-          if (title.includes("자동차")) {
-            location.href = "./posts/ev-subsidy.html";
-            return;
-          }
-          if (title.includes("노인복지")) {
-            location.href = "./posts/elder-benefit.html";
-            return;
-          }
-          if (title.includes("농어촌")) {
-            location.href = "./posts/farm-support.html";
-            return;
-          }
-          if (title.includes("자녀장려금")) {
-            location.href = "./posts/child-tax-credit.html";
-            return;
-          }
-          if (title.includes("문화누리카드")) {
-            location.href = "./posts/culture-card-guide.html";
-            return;
-          }
-          if (title.includes("국민내일배움카드")) {
-            location.href = "./posts/training-card-guide.html";
-            return;
-          }
-          if (title.includes("에너지바우처")) {
-            location.href = "./posts/energy-voucher-guide.html";
-            return;
-          }
-          if (title.includes("한부모")) {
-            location.href = "./posts/single-parent-support.html";
-            return;
-          }
-          if (title.includes("장애인")) {
-            location.href = "./posts/disability-benefit.html";
-            return;
-          }
-          if (title.includes("국가장학금")) {
-            location.href = "./posts/national-scholarship.html";
-            return;
-          }
-          if (title.includes("기초연금")) {
-            location.href = "./posts/basic-pension-guide.html";
-            return;
-          }
-          
-          if (detailContent) {
-            detailContent.innerHTML = `
-              <h3>${title}</h3>
-              <p>${desc}</p>
-              <p><strong>신청 방법:</strong> 정부24 또는 복지로 홈페이지 확인</p>
-              <p><strong>준비 서류:</strong> 신분증, 소득증빙서류, 주민등록등본</p>
-              <a href="https://www.gov.kr" target="_blank">정부24 바로가기</a>
-            `;
-          }
-          const detailBox = document.getElementById("detailBox");
-          if (detailBox) detailBox.scrollIntoView({ behavior: "smooth" });
+          if (title.includes("근로장려금")) { location.href = "./posts/earned-income-tax-credit.html"; return; }
+          if (title.includes("청년")) { location.href = "./posts/youth-account.html"; return; }
+          if (title.includes("주거지원")) { location.href = "./posts/housing-benefit.html"; return; }
+          if (title.includes("취업지원")) { location.href = "./posts/job-support.html"; return; }
+          if (title.includes("출산")) { location.href = "./posts/birth-child.html"; return; }
+          if (title.includes("자동차")) { location.href = "./posts/ev-subsidy.html"; return; }
+          if (title.includes("노인복지")) { location.href = "./posts/elder-benefit.html"; return; }
+          if (title.includes("농어촌")) { location.href = "./posts/farm-support.html"; return; }
+          if (title.includes("자녀장려금")) { location.href = "./posts/child-tax-credit.html"; return; }
+          if (title.includes("문화누리카드")) { location.href = "./posts/culture-card-guide.html"; return; }
+          if (title.includes("국민내일배움카드")) { location.href = "./posts/training-card-guide.html"; return; }
+          if (title.includes("에너지바우처")) { location.href = "./posts/energy-voucher-guide.html"; return; }
+          if (title.includes("한부모")) { location.href = "./posts/single-parent-support.html"; return; }
+          if (title.includes("장애인")) { location.href = "./posts/disability-benefit.html"; return; }
+          if (title.includes("국가장학금")) { location.href = "./posts/national-scholarship.html"; return; }
+          if (title.includes("기초연금")) { location.href = "./posts/basic-pension-guide.html"; return; }
         });
 
         cards.appendChild(card);
@@ -363,7 +226,7 @@ if (searchInput) {
   });
 }
 
-// 7. 초기화 구동 엔진 가동
+// 초기 가동
 updateFavoritesUI();
 if (select) {
   renderCards(select.value);
