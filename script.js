@@ -111,7 +111,7 @@ function renderCards(region) {
       else if (title.includes("장애인")) { location.href = "disability-benefit.html"; } 
       else if (title.includes("국가장학금")) { location.href = "national-scholarship.html"; } 
       else if (title.includes("기초연금")) { location.href = "basic-pension-guide.html"; } 
-      else if (title.includes("청년정책") || title.includes("청년정책")) { location.href = "job-support-guide.html"; } 
+      else if (title.includes("청년정책") || title.includes("청년정책")) { location.href = "youth-policy-list.html"; } 
       else if (title.includes("주거지원")) { location.href = "housing-benefit.html"; } 
       else if (title.includes("취업지원")) { location.href = "job-support.html"; } 
       else if (title.includes("출산")) { location.href = "birth-child.html"; } 
