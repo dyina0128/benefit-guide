@@ -1,38 +1,281 @@
-<div class="card-container">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="card">
-        <h2>🏠 청년 월세 지원</h2>
+    <title>2026 청년정책 안내 | 월세지원·청년도약계좌·취업지원</title>
+    <meta name="description"
+          content="청년월세지원, 청년도약계좌, 국민취업지원제도, 국가장학금, 청년버팀목 전세대출 정보를 한눈에 확인하세요.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+            line-height: 1.7;
+            color: #334155;
+            background: #f8fafc;
+        }
+
+        .page-header {
+            background: #0076c0;
+            color: white;
+            text-align: center;
+            padding: 42px 20px;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .page-header p {
+            margin: 12px 0 0;
+            opacity: 0.92;
+        }
+
+        .top-nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-nav a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: #0076c0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px 50px;
+        }
+
+        .intro-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 26px;
+            margin-bottom: 25px;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .policy-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .policy-card h2 {
+            margin: 0 0 12px;
+            color: #1e3a5f;
+            font-size: 1.35rem;
+        }
+
+        .policy-card p {
+            flex-grow: 1;
+            margin-bottom: 22px;
+        }
+
+        .detail-btn {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 11px 20px;
+            background: #0076c0;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .detail-btn:hover {
+            background: #005f99;
+        }
+
+        .notice-box {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 18px 20px;
+            margin-top: 28px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 22px;
+            background: #475569;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+        }
+
+        footer a {
+            color: #0076c0;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 {
+                font-size: 1.55rem;
+            }
+
+            .policy-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="page-header">
+    <h1>🎓 2026년 청년정책 안내</h1>
+    <p>주거·금융·취업·교육 지원 정보를 주제별로 확인하세요.</p>
+</header>
+
+<nav class="top-nav">
+    <a href="index.html">메인</a>
+    <a href="about.html">사이트 소개</a>
+    <a href="contact.html">문의하기</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="terms.html">이용약관</a>
+</nav>
+
+<main class="container">
+
+    <section class="intro-box">
+        <h2>나에게 맞는 청년 지원제도를 찾아보세요</h2>
 
         <p>
-            청년 월세 특별지원 대상,
-            신청조건,
-            지원금,
-            신청방법 안내
+            청년정책은 나이, 소득, 재산, 취업 상태, 거주 지역에 따라
+            신청 조건이 달라질 수 있습니다. 아래 항목에서 원하는 정책을 선택하면
+            대상 조건, 지원 내용, 신청 방법과 준비 서류를 확인할 수 있습니다.
         </p>
+    </section>
 
-        <a class="btn"
-           href="youth-rent.html">
-            자세히 보기
-        </a>
-    </div>
+    <section class="policy-grid">
 
+        <article class="policy-card">
+            <h2>🏠 청년월세지원</h2>
 
-    <div class="card">
+            <p>
+                무주택 청년의 월세 부담을 줄여주는 지원제도입니다.
+                신청 자격, 소득·재산 기준, 지원 기간과 신청 방법을 확인하세요.
+            </p>
 
-        <h2>💰 청년도약계좌</h2>
+            <a href="youth-rent.html" class="detail-btn">
+                자세히 보기
+            </a>
+        </article>
+
+        <article class="policy-card">
+            <h2>💰 청년도약계좌</h2>
+
+            <p>
+                청년의 중장기 자산 형성을 지원하는 정책형 금융상품입니다.
+                가입 연령, 소득 조건, 정부기여금과 신청 절차를 안내합니다.
+            </p>
+
+            <a href="youth-account-guide.html" class="detail-btn">
+                자세히 보기
+            </a>
+        </article>
+
+        <article class="policy-card">
+            <h2>💼 국민취업지원제도</h2>
+
+            <p>
+                취업 준비 청년에게 취업지원서비스와 구직촉진수당 등을
+                지원하는 제도입니다. 유형별 조건과 신청 방법을 확인하세요.
+            </p>
+
+            <a href="job-support-guide.html" class="detail-btn">
+                자세히 보기
+            </a>
+        </article>
+
+        <article class="policy-card">
+            <h2>🎓 국가장학금</h2>
+
+            <p>
+                대학생의 등록금 부담을 줄이기 위한 장학제도입니다.
+                소득구간, 성적 기준, 신청 기간과 지급 방식을 확인하세요.
+            </p>
+
+            <a href="national-scholarship.html" class="detail-btn">
+                자세히 보기
+            </a>
+        </article>
+
+        <article class="policy-card">
+            <h2>🏦 청년버팀목 전세대출</h2>
+
+            <p>
+                무주택 청년의 전세보증금 마련을 돕는 정책대출입니다.
+                대상 조건, 대출 한도, 금리와 신청 절차를 안내합니다.
+            </p>
+
+            <a href="youth-jeonse-loan.html" class="detail-btn">
+                자세히 보기
+            </a>
+        </article>
+
+    </section>
+
+    <div class="notice-box">
+        <strong>꼭 확인하세요</strong>
 
         <p>
-            가입조건,
-            정부기여금,
-            금리,
-            신청방법 안내
+            청년정책의 지원 조건과 신청 기간은 정부 지침과 지역별 공고에 따라
+            변경될 수 있습니다. 실제 신청 전에는 반드시 공식 홈페이지의
+            최신 공고를 확인하세요.
         </p>
-
-        <a class="btn"
-           href="youth-account-guide.html">
-            자세히 보기
-        </a>
-
     </div>
 
-</div>
+    <a href="index.html" class="back-btn">
+        ← 메인으로 돌아가기
+    </a>
+
+</main>
+
+<footer>
+    <p><strong>© 2026 대한민국 혜택 생활 가이드</strong></p>
+
+    <p>
+        <a href="index.html">메인</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="contact.html">문의하기</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+    </p>
+</footer>
+
+</body>
+</html>
