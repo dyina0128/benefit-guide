@@ -1,172 +1,439 @@
-// 1. 전국 및 지역별 혜택 데이터 (전국 8도 전 지역 데이터 탑재 완료)
+// ======================================================
+// 대한민국 혜택 생활 가이드 - 메인페이지 카드/검색/지역 필터
+// ======================================================
+
 const benefitData = {
-  "전국": [
-    ["🎓 청년정책", "청년 월세지원, 청년도약계좌, 국민취업지원제도"],
-    ["🏠 주거지원", "주거급여, 전세자금대출, 신혼부부 주거지원"],
-    ["👶 출산·육아", "부모급여, 아동수당, 첫만남 이용권"],
-    ["💼 취업지원", "국민취업지원제도, 내일배움카드"],
-    ["👴 노인복지", "기초연금, 노인일자리 사업"],
-    ["🚜 농어촌 지원", "귀농귀촌 지원, 청년농업인 지원"],
-    ["🚗 자동차 지원", "전기차 보조금, 조기폐차 지원금, 자동차세 감면"],
-    ["💰 근로장려금", "근로장려금 신청방법, 지급조건"],
-    ["👨‍👩‍👧 자녀장려금", "자녀 양육 가구 지원금 신청방법"],
-    ["🎭 문화누리카드", "문화생활 지원"],
-    ["🎓 국민내일배움카드", "직업훈련 및 자격증 교육 지원"],
-    ["🔥 에너지바우처", "전기·가스·난방비 지원"],
-    ["👨‍👧 한부모가정 지원", "아동양육비, 교육비, 주거지원"],
-    ["♿ 장애인 복지", "장애인연금, 활동지원, 의료비 지원"],
-    ["🎓 국가장학금", "대학생 등록금 지원, 소득구간별 장학금"],
-    ["👴 기초연금", "만 65세 이상 기초연금 지원"]
+  전국: [
+    {
+      title: "🎓 청년정책",
+      description: "청년월세지원, 청년도약계좌, 청년버팀목 전세대출",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 주거지원",
+      description: "주거급여, 청년월세, 공공임대주택 지원",
+      url: "housing-benefit.html"
+    },
+    {
+      title: "👶 출산·육아",
+      description: "첫만남이용권, 부모급여, 아동수당과 육아휴직",
+      url: "birth-child.html"
+    },
+    {
+      title: "💼 국민취업지원제도",
+      description: "취업지원서비스, 구직촉진수당과 취업성공수당",
+      url: "job-support.html"
+    },
+    {
+      title: "👵 노인복지",
+      description: "기초연금, 노인일자리, 장기요양과 돌봄서비스",
+      url: "elder-benefit.html"
+    },
+    {
+      title: "🌾 농어촌지원",
+      description: "공익직불금, 귀농귀촌, 농업경영체와 농어업인 지원",
+      url: "farm-support.html"
+    },
+    {
+      title: "🚗 자동차지원",
+      description: "전기차 보조금, 조기폐차 지원과 자동차세 감면",
+      url: "ev-subsidy.html"
+    },
+    {
+      title: "💰 근로장려금",
+      description: "가구유형별 소득·재산 조건과 신청방법",
+      url: "work-incentive-guide.html"
+    },
+    {
+      title: "👨‍👩‍👧 자녀장려금",
+      description: "부양자녀 조건, 소득기준과 자녀별 지급액",
+      url: "child-tax-credit.html"
+    },
+    {
+      title: "🎭 문화누리카드",
+      description: "문화·관광·체육활동을 위한 카드 지원",
+      url: "culture-card.html"
+    },
+    {
+      title: "🎓 국민내일배움카드",
+      description: "직업훈련비, 자격증 교육과 훈련장려금 지원",
+      url: "training-card-guide.html"
+    },
+    {
+      title: "⚡ 에너지바우처",
+      description: "전기·가스·지역난방·등유·LPG 비용 지원",
+      url: "energy-voucher-guide.html"
+    },
+    {
+      title: "👨‍👧 한부모가족 지원",
+      description: "아동양육비, 교육비, 주거와 양육비 이행지원",
+      url: "single-parent-support.html"
+    },
+    {
+      title: "♿ 장애인복지",
+      description: "장애인연금, 활동지원, 보조기기와 요금감면",
+      url: "disability-benefit.html"
+    },
+    {
+      title: "🎓 국가장학금",
+      description: "대학생 등록금 지원과 소득구간별 장학금",
+      url: "national-scholarship.html"
+    },
+    {
+      title: "👴 기초연금",
+      description: "만 65세 이상 어르신의 노후소득 지원",
+      url: "basic-pension-guide.html"
+    }
   ],
-  "서울": [
-    ["🎓 서울 청년정책", "서울 청년수당, 청년월세지원"],
-    ["🏠 서울 주거지원", "신혼부부 임차보증금 지원"]
+
+  서울: [
+    {
+      title: "🎓 서울 청년정책",
+      description: "서울 청년수당과 청년 주거지원 정보를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 서울 주거지원",
+      description: "신혼부부 임차보증금과 공공주택 지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "부산": [
-    ["🎓 부산 청년정책", "부산 청년 디딤돌카드"],
-    ["🏠 부산 주거지원", "부산형 전세자금 지원"]
+
+  인천: [
+    {
+      title: "🎓 인천 청년정책",
+      description: "청년월세와 지역 청년지원 제도를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 인천 주거지원",
+      description: "주거급여와 전세·월세 지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "경기": [
-    ["🎓 경기 청년정책", "청년기본소득, 청년면접수당"],
-    ["🏠 경기 주거지원", "청년 전월세보증금 대출"]
+
+  경기: [
+    {
+      title: "🎓 경기 청년정책",
+      description: "청년기본소득과 청년 취업·주거지원을 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 경기 주거지원",
+      description: "청년 전월세와 공공임대 지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "인천": [
-    ["🎓 인천 청년정책", "청년 월세지원, 드림체크카드"],
-    ["🏠 인천 주거지원", "전세보증금 지원"]
+
+  부산: [
+    {
+      title: "🎓 부산 청년정책",
+      description: "부산 청년 취업·자산형성 지원 정보를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 부산 주거지원",
+      description: "부산 지역 전세·월세 지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "대구": [
-    ["🎓 대구 청년정책", "청년희망적금 지원"],
-    ["💼 대구 취업지원", "청년 구직활동 지원"]
+
+  대구: [
+    {
+      title: "🎓 대구 청년정책",
+      description: "대구 청년 자산형성과 생활지원 정보를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "💼 대구 취업지원",
+      description: "청년 구직활동과 직업훈련 지원을 확인하세요.",
+      url: "job-support.html"
+    }
   ],
-  "광주": [
-    ["🎓 광주 청년정책", "광주 청년드림수당"],
-    ["🏠 광주 주거지원", "청년 월세 특별지원"]
+
+  광주: [
+    {
+      title: "🎓 광주 청년정책",
+      description: "광주 청년 구직·생활지원 정보를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 광주 주거지원",
+      description: "청년월세와 주거급여 지원을 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "대전": [
-    ["🎓 대전 청년정책", "청년 주거비 지원"],
-    ["🏠 대전 주거지원", "신혼부부 전세자금 지원"]
+
+  대전: [
+    {
+      title: "🎓 대전 청년정책",
+      description: "대전 청년 주거·취업 지원 정보를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 대전 주거지원",
+      description: "신혼부부와 청년 전세자금 지원을 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "울산": [
-    ["💼 울산 취업지원", "청년 취업성공패키지"]
+
+  울산: [
+    {
+      title: "💼 울산 취업지원",
+      description: "청년 취업지원과 직업훈련 정보를 확인하세요.",
+      url: "job-support.html"
+    },
+    {
+      title: "🏠 울산 주거지원",
+      description: "주거급여와 지역 주거지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "강원": [
-    ["🌾 강원 농어촌지원", "귀농귀촌 지원"]
+
+  세종: [
+    {
+      title: "🎓 세종 청년정책",
+      description: "세종 청년 주거·취업·생활지원 정보를 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 세종 주거지원",
+      description: "주거급여와 공공임대 지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  // 🌟 [누락 복구] 자바스크립트 엔진 내 데이터 칩 완벽 납땜
-  "충북": [
-    ["💼 충북 취업지원", "청년 취업지원 사업 및 직업훈련"]
+
+  강원: [
+    {
+      title: "🌾 강원 농어촌지원",
+      description: "귀농귀촌과 농업인 지원제도를 확인하세요.",
+      url: "farm-support.html"
+    },
+    {
+      title: "🏠 강원 주거지원",
+      description: "주거급여와 지역 주거지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "충남": [
-    ["🏠 충남 주거지원", "청년 주거급여 및 월세 특별지원"]
+
+  충북: [
+    {
+      title: "💼 충북 취업지원",
+      description: "청년 취업지원과 직업훈련 정보를 확인하세요.",
+      url: "job-support.html"
+    },
+    {
+      title: "🌾 충북 농어촌지원",
+      description: "농업인과 귀농귀촌 지원제도를 확인하세요.",
+      url: "farm-support.html"
+    }
   ],
-  "전북": [
-    ["🎓 전북 청년정책", "청년수당 및 전북 청년 종합 지원"]
+
+  충남: [
+    {
+      title: "🏠 충남 주거지원",
+      description: "청년월세와 주거급여 지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    },
+    {
+      title: "🌾 충남 농어촌지원",
+      description: "농업인과 귀농귀촌 지원제도를 확인하세요.",
+      url: "farm-support.html"
+    }
   ],
-  "전남": [
-    ["🌾 전남 농어촌지원", "귀농어·귀촌 정착 지원금"]
+
+  전북: [
+    {
+      title: "🎓 전북 청년정책",
+      description: "청년 생활·취업·자산형성 지원을 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🌾 전북 농어촌지원",
+      description: "귀농귀촌과 농업인 지원사업을 확인하세요.",
+      url: "farm-support.html"
+    }
   ],
-  "경북": [
-    ["💼 경북 취업지원", "청년 일자리 매칭 및 취업 장려금"]
+
+  전남: [
+    {
+      title: "🌾 전남 농어촌지원",
+      description: "귀농어·귀촌 정착과 농어업 지원을 확인하세요.",
+      url: "farm-support.html"
+    },
+    {
+      title: "🏠 전남 주거지원",
+      description: "주거급여와 지역 주거지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ],
-  "경남": [
-    ["🏠 경남 주거지원", "신혼부부 주거 자금 및 주택 지원"]
+
+  경북: [
+    {
+      title: "💼 경북 취업지원",
+      description: "청년 일자리와 취업지원 정보를 확인하세요.",
+      url: "job-support.html"
+    },
+    {
+      title: "🌾 경북 농어촌지원",
+      description: "농업인과 귀농귀촌 지원사업을 확인하세요.",
+      url: "farm-support.html"
+    }
   ],
-  "제주": [
-    ["✈️ 제주 청년정책", "청년 정착 지원금 및 제주 한달살이 가이드"]
+
+  경남: [
+    {
+      title: "🏠 경남 주거지원",
+      description: "신혼부부·청년 주거지원 정보를 확인하세요.",
+      url: "housing-benefit.html"
+    },
+    {
+      title: "🌾 경남 농어촌지원",
+      description: "농어업인과 귀농귀촌 지원을 확인하세요.",
+      url: "farm-support.html"
+    }
+  ],
+
+  제주: [
+    {
+      title: "✈️ 제주 청년정책",
+      description: "제주 청년 정착·취업·주거 지원을 확인하세요.",
+      url: "youth-policy-list.html"
+    },
+    {
+      title: "🏠 제주 주거지원",
+      description: "주거급여와 제주 지역 주거지원을 확인하세요.",
+      url: "housing-benefit.html"
+    }
   ]
 };
 
-const select = document.getElementById("region");
-const cards = document.getElementById("cards");
-const detailContent = document.getElementById("detailContent");
-const detailBox = document.getElementById("detailBox");
+// ------------------------------------------------------
+// HTML 요소 가져오기
+// ------------------------------------------------------
+
+const regionSelect = document.getElementById("region");
+const cardsContainer = document.getElementById("cards");
 const searchInput = document.getElementById("searchInput");
 
-function renderCards(region) {
-  if (!cards) return;
-  cards.innerHTML = "";
+// ------------------------------------------------------
+// 특수문자를 안전하게 화면에 출력
+// ------------------------------------------------------
 
-  const data = benefitData[region] || benefitData["전국"];
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
-  data.forEach(function(item) {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <h3>${item[0]}</h3>
-      <p>${item[1]}</p>
-      <div class="btn-group">
-        <button class="detailBtn">자세히 보기</button>
-      </div>
+// ------------------------------------------------------
+// 카드 하나 생성
+// ------------------------------------------------------
+
+function createBenefitCard(item) {
+  const card = document.createElement("article");
+  card.className = "card";
+
+  card.innerHTML = `
+    <h3>${escapeHtml(item.title)}</h3>
+    <p>${escapeHtml(item.description)}</p>
+
+    <div class="btn-group">
+      <a href="${escapeHtml(item.url)}" class="detailBtn">
+        자세히 보기
+      </a>
+    </div>
+  `;
+
+  return card;
+}
+
+// ------------------------------------------------------
+// 선택한 지역과 검색어에 맞게 카드 표시
+// ------------------------------------------------------
+
+function renderCards() {
+  if (!cardsContainer) {
+    return;
+  }
+
+  const selectedRegion = regionSelect ? regionSelect.value : "전국";
+  const keyword = searchInput
+    ? searchInput.value.trim().toLowerCase()
+    : "";
+
+  const regionalData =
+    benefitData[selectedRegion] || benefitData["전국"];
+
+  const filteredData = regionalData.filter((item) => {
+    if (!keyword) {
+      return true;
+    }
+
+    const searchableText =
+      `${item.title} ${item.description}`.toLowerCase();
+
+    return searchableText.includes(keyword);
+  });
+
+  cardsContainer.innerHTML = "";
+
+  if (filteredData.length === 0) {
+    const emptyMessage = document.createElement("div");
+    emptyMessage.className = "empty-message";
+
+    emptyMessage.innerHTML = `
+      <strong>검색 결과가 없습니다.</strong>
+      <p>
+        다른 검색어를 입력하거나 지역을
+        ‘전국 공통 혜택’으로 변경해 보세요.
+      </p>
     `;
 
-    const button = card.querySelector(".detailBtn");
-    button.addEventListener("click", function() {
-      const title = item[0];
+    cardsContainer.appendChild(emptyMessage);
+    return;
+  }
 
-      if (title.includes("근로장려금")) { location.href = "work-incentive-guide.html"; } 
-      else if (title.includes("자녀장려금")) { location.href = "child-tax-credit.html"; } 
-      else if (title.includes("문화누리카드")) { location.href = "culture-card-guide.html"; } 
-      else if (title.includes("국민내일배움카드")) { location.href = "training-card-guide.html"; } 
-      else if (title.includes("에너지바우처")) { location.href = "energy-voucher-guide.html"; } 
-      else if (title.includes("장애인")) { location.href = "disability-benefit.html"; } 
-      else if (title.includes("국가장학금")) { location.href = "national-scholarship.html"; } 
-      else if (title.includes("기초연금")) { location.href = "basic-pension-guide.html"; } 
-      else if (title.includes("청년정책") || title.includes("청년정책")) { location.href = "youth-policy-list.html"; } 
-      else if (title.includes("주거지원")) { location.href = "housing-benefit.html"; } 
-      else if (title.includes("취업지원")) { location.href = "job-support.html"; } 
-      else if (title.includes("출산")) { location.href = "birth-child.html"; } 
-      else if (title.includes("자동차")) { location.href = "ev-subsidy.html"; } 
-      else if (title.includes("노인복지")) { location.href = "elder-benefit.html"; } 
-      else if (title.includes("농어촌")) { location.href = "farm-support.html"; }
-    });
-
-    cards.appendChild(card);
+  filteredData.forEach((item) => {
+    cardsContainer.appendChild(createBenefitCard(item));
   });
 }
+
+// ------------------------------------------------------
+// 지역 변경
+// ------------------------------------------------------
+
+if (regionSelect) {
+  regionSelect.addEventListener("change", () => {
+    if (searchInput) {
+      searchInput.value = "";
+    }
+
+    renderCards();
+  });
+}
+
+// ------------------------------------------------------
+// 검색 입력
+// ------------------------------------------------------
 
 if (searchInput) {
-  searchInput.addEventListener("input", function() {
-    const keyword = searchInput.value.trim();
-    if (!keyword) {
-      renderCards(select ? select.value : "전국");
-      return;
+  searchInput.addEventListener("input", renderCards);
+
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      searchInput.value = "";
+      renderCards();
+      searchInput.blur();
     }
-    
-    cards.innerHTML = "";
-    const currentRegion = select ? select.value : "전국";
-    const data = benefitData[currentRegion] || benefitData["전국"];
-
-    data.forEach(function(item) {
-      if (item[0].includes(keyword) || item[1].includes(keyword)) {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${item[0]}</h3>
-          <p>${item[1]}</p>
-          <div class="btn-group">
-            <button class="detailBtn">자세히 보기</button>
-          </div>
-        `;
-
-        const button = card.querySelector(".detailBtn");
-        button.addEventListener("click", function() {
-          const title = item[0];
-          if (title.includes("근로장려금")) { location.href = "work-incentive-guide.html"; }
-          else if (title.includes("자녀장려금")) { location.href = "child-tax-credit.html"; }
-          else if (title.includes("문화누리카드")) { location.href = "culture-card-guide.html"; }
-          else if (title.includes("청년")) { location.href = "job-support-guide.html"; }
-          else if (title.includes("주거지원")) { location.href = "housing-benefit.html"; }
-        });
-        cards.appendChild(card);
-      }
-    });
   });
 }
 
-if (select) {
-  select.addEventListener("change", function() {
-    renderCards(select.value);
-  });
-}
+// ------------------------------------------------------
+// 첫 화면 표시
+// ------------------------------------------------------
 
-renderCards("전국");
+renderCards();
