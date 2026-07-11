@@ -52,7 +52,7 @@ const benefitData = {
     {
       title: "🎭 문화누리카드",
       description: "문화·관광·체육활동을 위한 카드 지원",
-      url: "culture-card.html"
+      url: "culture-card-guide.html"
     },
     {
       title: "🎓 국민내일배움카드",
