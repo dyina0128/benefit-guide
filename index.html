@@ -161,6 +161,47 @@
             font-size: 1.08rem;
         }
 
+
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .region-card {
+            display: flex;
+            flex-direction: column;
+            padding: 22px;
+            color: #334155;
+            text-decoration: none;
+            background: #ffffff;
+            border: 1px solid #dbe7ee;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .region-card:hover {
+            transform: translateY(-3px);
+            border-color: #79c2df;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
+        }
+
+        .region-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #126e91;
+            font-size: 1.15rem;
+        }
+
+        .region-card span {
+            color: #526274;
+            font-size: 0.95rem;
+        }
+
         .search-area {
             display: grid;
             grid-template-columns: minmax(190px, 260px) 1fr;
@@ -310,7 +351,8 @@
         }
 
         @media (max-width: 1000px) {
-            .featured-grid {
+            .featured-grid,
+            .region-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
@@ -351,6 +393,7 @@
             }
 
             .featured-grid,
+            .region-grid,
             .benefit-grid,
             #cards.card-container {
                 grid-template-columns: 1fr;
@@ -506,6 +549,52 @@
                  class="card-container"
                  aria-live="polite">
             </div>
+        </div>
+    </section>
+
+
+    <section class="section-box">
+        <h2>지역별 지원금 가이드</h2>
+
+        <p class="section-description">
+            서울·인천·경기·부산의 청년, 주거, 출산·육아,
+            일자리와 소상공인 지원 정보를 지역별로 확인하세요.
+        </p>
+
+        <div class="region-grid">
+
+            <a href="seoul-benefits.html"
+               class="region-card">
+                <strong>🏙️ 서울특별시</strong>
+                <span>
+                    청년수당, 청년월세, 주거·출산·일자리 지원
+                </span>
+            </a>
+
+            <a href="incheon-benefits.html"
+               class="region-card">
+                <strong>⚓ 인천광역시</strong>
+                <span>
+                    드림체크카드, 청년월세, 출산·소상공인 지원
+                </span>
+            </a>
+
+            <a href="gyeonggi-benefits.html"
+               class="region-card">
+                <strong>🌳 경기도</strong>
+                <span>
+                    청년기본소득, 면접수당, 노동자통장·주거 지원
+                </span>
+            </a>
+
+            <a href="busan-benefits.html"
+               class="region-card">
+                <strong>🌊 부산광역시</strong>
+                <span>
+                    디딤돌카드, 기쁨두배통장, 월세·출산 지원
+                </span>
+            </a>
+
         </div>
     </section>
 
