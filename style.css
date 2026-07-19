@@ -94,3 +94,43 @@ button:focus-visible {
     outline: 3px solid #0b74de;
     outline-offset: 3px;
 }
+
+/* Support search page */
+.benefit-search-page { color: #334155; background: #f8fafc; line-height: 1.7; }
+.benefit-search-header { padding: 52px 20px; color: #fff; text-align: center; background: linear-gradient(135deg, #0879bd, #0797c9); }
+.benefit-search-header h1 { margin: 0; font-size: 2.25rem; }
+.benefit-search-header p { max-width: 780px; margin: 12px auto 0; }
+.benefit-search-nav { max-width: 1100px; margin: auto; padding: 18px 20px; text-align: center; }
+.benefit-search-nav a, .benefit-search-footer a { display: inline-block; margin: 5px 10px; color: #0076c0; font-weight: 700; text-decoration: none; }
+.benefit-search-breadcrumb, .benefit-search-main { max-width: 1100px; margin: auto; padding: 0 20px; }
+.benefit-search-breadcrumb { overflow-x: auto; white-space: nowrap; }
+.benefit-search-breadcrumb ol { display: flex; gap: 8px; margin: 0; padding: 0 0 18px; list-style: none; }
+.benefit-search-breadcrumb li + li::before { margin-right: 8px; color: #94a3b8; content: ">"; }
+.benefit-search-main { padding-bottom: 55px; }
+.benefit-search-panel, .benefit-search-card, .benefit-search-empty, .benefit-search-notice { padding: 26px; background: #fff; border: 1px solid #dbe5ee; border-radius: 15px; box-shadow: 0 4px 14px rgba(15,23,42,.05); }
+.benefit-search-panel h2 { margin-top: 0; color: #1e3a5f; }
+.benefit-search-query label, .benefit-search-filters label { display: block; margin-bottom: 6px; color: #1e3a5f; font-weight: 700; }
+.benefit-search-query input, .benefit-search-filters select { width: 100%; min-height: 46px; padding: 10px 12px; color: #24364b; background: #fff; border: 1px solid #b8c8d6; border-radius: 9px; font: inherit; }
+.benefit-search-filters { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin-top: 16px; }
+.benefit-search-reset, .benefit-search-link { display: inline-block; margin-top: 18px; padding: 11px 18px; color: #fff; background: #0879bd; border: 0; border-radius: 9px; font-weight: 700; text-decoration: none; cursor: pointer; }
+.benefit-search-count { margin: 30px 0 16px; color: #1e3a5f; font-size: 1.2rem; }
+.benefit-search-results { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+.benefit-search-card { display: flex; flex-direction: column; }
+.benefit-search-card h2 { margin: 13px 0 8px; color: #153b5b; font-size: 1.3rem; }
+.benefit-search-card p { margin: 6px 0; }
+.benefit-search-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+.benefit-search-badges span { padding: 4px 9px; color: #075985; background: #e0f2fe; border-radius: 999px; font-size: .84rem; font-weight: 700; }
+.benefit-search-target, .benefit-search-status { color: #475569; }
+.benefit-search-source { color: #64748b; font-size: .9rem; }
+.benefit-search-link { align-self: flex-start; margin-top: auto; }
+.benefit-search-unavailable { margin-top: auto; color: #64748b; font-weight: 700; }
+.benefit-search-empty { text-align: center; }
+.benefit-search-footer { padding: 28px 20px; text-align: center; background: #fff; border-top: 1px solid #dbe5ee; }
+.benefit-search-footer p { margin: 8px 0; }
+.benefit-search-query input:focus-visible, .benefit-search-filters select:focus-visible, .benefit-search-reset:focus-visible, .benefit-search-link:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+@media (max-width: 760px) {
+    .benefit-search-header { padding: 40px 16px; }
+    .benefit-search-header h1 { font-size: 1.85rem; }
+    .benefit-search-filters, .benefit-search-results { grid-template-columns: 1fr; }
+    .benefit-search-reset, .benefit-search-link { width: 100%; box-sizing: border-box; text-align: center; }
+}
