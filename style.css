@@ -88,3 +88,9 @@ body {
     cursor: pointer !important;
     font-size: 0.9rem !important;
 }
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #0b74de;
+    outline-offset: 3px;
+}
